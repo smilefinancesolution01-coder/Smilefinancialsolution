@@ -3,95 +3,185 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Smile Financial Solution | Patel Nagar HQ</title>
+    <title>Smile Financial Solution | India's Leading MSME & Business Loan Hub</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        .glass-nav { background: rgba(255, 255, 255, 0.8); backdrop-filter: blur(10px); }
-        #ai-chat-window.hidden { display: none; }
+        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;700;800&display=swap');
+        body { font-family: 'Plus Jakarta Sans', sans-serif; scroll-behavior: smooth; }
+        .hero-gradient { background: radial-gradient(circle at top right, #eff6ff 0%, #ffffff 100%); }
+        .service-card:hover { transform: translateY(-10px); transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
     </style>
 </head>
-<body class="bg-slate-50 text-slate-900 font-sans">
+<body class="bg-white text-slate-900">
 
-    <nav class="glass-nav sticky top-0 z-[100] border-b border-slate-200 p-5 flex justify-between items-center px-10">
-        <div class="flex items-center gap-2">
-            <div class="w-10 h-10 bg-blue-700 rounded-xl flex items-center justify-center text-white font-black">S</div>
-            <h1 class="font-black text-xl tracking-tighter uppercase">Smile <span class="text-blue-700">Financial</span></h1>
-        </div>
-        <div class="hidden md:flex gap-8 text-[10px] font-black uppercase tracking-widest text-slate-500">
-            <a href="#services" class="hover:text-blue-700 transition">Services</a>
-            <a href="network.html" class="hover:text-blue-700 transition">12 Centers</a>
-            <a href="tel:8586051944" class="text-blue-700 font-bold border-b-2 border-blue-700">Support: 8586051944</a>
-        </div>
-    </nav>
-
-    <header class="py-24 px-10 text-center bg-white border-b border-slate-100">
-        <span class="bg-blue-50 text-blue-700 px-4 py-1 rounded-full text-[10px] font-black uppercase tracking-widest italic mb-6 inline-block">Established 2018 | Patel Nagar HQ</span>
-        <h1 class="text-5xl md:text-8xl font-black mb-8 leading-[0.9] uppercase italic">Empowering <br><span class="text-blue-700">Indian Business</span></h1>
-        <p class="max-w-2xl mx-auto text-slate-500 font-medium text-lg leading-relaxed mb-10 italic">
-            Get Udyam registration, PMEGP grants, and Mudra loans with 8 years of expert liasoning.
-        </p>
-        <div class="flex flex-wrap justify-center gap-4">
-            <a href="#services" class="bg-slate-900 text-white px-10 py-5 rounded-[2rem] font-black uppercase text-xs shadow-2xl hover:bg-blue-700 transition">Our Services</a>
-            <button onclick="toggleChat()" class="bg-blue-700 text-white px-10 py-5 rounded-[2rem] font-black uppercase text-xs shadow-2xl shadow-blue-200 hover:scale-105 transition">Talk to Smile AI</button>
-        </div>
-    </header>
-
-    
-
-    <section id="services" class="py-24 px-10 max-w-7xl mx-auto grid md:grid-cols-3 gap-10">
-        <div class="p-10 bg-white rounded-[3rem] border border-slate-100 shadow-sm hover:shadow-2xl transition group">
-            <i class="fas fa-landmark text-3xl text-blue-600 mb-6 group-hover:scale-110 transition"></i>
-            <h3 class="font-black text-2xl mb-4 uppercase leading-none">PMEGP <br>Funding</h3>
-            <p class="text-slate-500 text-sm mb-8">Up to ₹50 Lakh loan with 35% govt subsidy for new units.</p>
-            <a href="pmegp.html" class="text-xs font-black uppercase border-b-2 border-blue-700 pb-1">Learn More →</a>
-        </div>
-        <div class="p-10 bg-white rounded-[3rem] border border-slate-100 shadow-sm hover:shadow-2xl transition group">
-            <i class="fas fa-tractor text-3xl text-green-600 mb-6 group-hover:scale-110 transition"></i>
-            <h3 class="font-black text-2xl mb-4 uppercase leading-none">Tractor <br>Loans</h3>
-            <p class="text-slate-500 text-sm mb-8">Specialized farming and agri-business financing solutions.</p>
-            <a href="tractor-loan.html" class="text-xs font-black uppercase border-b-2 border-green-600 pb-1">Learn More →</a>
-        </div>
-        <div class="p-10 bg-white rounded-[3rem] border border-slate-100 shadow-sm hover:shadow-2xl transition group">
-            <i class="fas fa-file-invoice text-3xl text-purple-600 mb-6 group-hover:scale-110 transition"></i>
-            <h3 class="font-black text-2xl mb-4 uppercase leading-none">MSME <br>Compliance</h3>
-            <p class="text-slate-500 text-sm mb-8">Udyam Registration & DPR reports within 24-48 hours.</p>
-            <a href="msme-registration.html" class="text-xs font-black uppercase border-b-2 border-purple-600 pb-1">Learn More →</a>
-        </div>
-    </section>
-
-    <div id="ai-chat-window" class="fixed bottom-24 right-6 bg-white shadow-2xl rounded-[2.5rem] flex flex-col overflow-hidden border border-slate-100 w-[350px] h-[550px] z-[1000] hidden">
-        <div class="bg-blue-700 p-6 text-white flex justify-between items-center">
-            <div class="flex items-center gap-3">
-                <i class="fas fa-robot text-xl"></i>
-                <h4 class="font-bold text-sm">Smile AI Expert</h4>
-            </div>
-            <button onclick="toggleChat()" class="text-white/60 hover:text-white"><i class="fas fa-times"></i></button>
-        </div>
-        <div id="ai-messages" class="flex-1 p-5 overflow-y-auto bg-slate-50 space-y-4">
-            <div class="bg-white p-4 rounded-2xl rounded-tl-none border border-slate-100 text-[13px] shadow-sm">
-                Namaste! I am your Smart AI Assistant. I can generate images and provide loan advice. How can I help?
-            </div>
-        </div>
-        <div class="p-4 bg-white border-t flex items-center gap-2">
-            <label class="cursor-pointer text-slate-400 p-2"><i class="fas fa-file-pdf"></i><input type="file" id="pdf-upload" class="hidden"></label>
-            <input type="text" id="ai-input" placeholder="Ask anything..." class="flex-1 text-sm outline-none">
-            <button id="mic-btn" class="text-slate-400 px-2"><i class="fas fa-microphone"></i></button>
-            <button id="send-ai" class="bg-blue-700 text-white w-10 h-10 rounded-xl flex items-center justify-center"><i class="fas fa-paper-plane text-xs"></i></button>
+    <div class="bg-blue-700 text-white py-2 px-6 text-[10px] font-black uppercase tracking-[0.2em] flex justify-between items-center">
+        <span><i class="fas fa-check-circle mr-2"></i> ISO 9001:2015 Certified Financial Consulting</span>
+        <div class="hidden md:flex gap-6">
+            <span>HQ: Patel Nagar, New Delhi</span>
+            <a href="tel:8586051944" class="hover:underline">Support: +91 8586051944</a>
         </div>
     </div>
 
-    <button onclick="toggleChat()" class="fixed bottom-6 right-6 bg-blue-700 text-white w-16 h-16 rounded-full shadow-2xl flex items-center justify-center text-2xl z-[1001] hover:scale-110 transition">
-        <i class="fas fa-comment-dots"></i>
-    </button>
+    <nav class="sticky top-0 z-[100] bg-white/80 backdrop-blur-md border-b border-slate-100 p-4 px-8 flex justify-between items-center">
+        <div class="flex items-center gap-3">
+            <div class="w-12 h-12 bg-blue-700 rounded-2xl flex items-center justify-center text-white text-2xl font-black shadow-lg shadow-blue-200">S</div>
+            <div>
+                <h1 class="font-black text-xl leading-none tracking-tighter uppercase">Smile <span class="text-blue-700">Financial</span></h1>
+                <p class="text-[8px] font-bold text-slate-400 tracking-[0.3em] uppercase">Solution & Excellence</p>
+            </div>
+        </div>
+        <div class="hidden lg:flex gap-8 text-[11px] font-black uppercase tracking-widest text-slate-600">
+            <a href="#schemes" class="hover:text-blue-700">Govt Schemes</a>
+            <a href="#loans" class="hover:text-blue-700">Business Loans</a>
+            <a href="#compliance" class="hover:text-blue-700">Compliance</a>
+            <a href="network.html" class="hover:text-blue-700">12 Centers</a>
+            <a href="contact.html" class="bg-slate-900 text-white px-6 py-3 rounded-xl hover:bg-blue-700 transition">Get Started</a>
+        </div>
+    </nav>
 
-    <script src="ai-engine.js"></script>
-    <script>
-        function toggleChat() {
-            const chat = document.getElementById('ai-chat-window');
-            chat.classList.toggle('hidden');
-        }
-    </script>
+    <header class="hero-gradient py-24 md:py-32 px-6 border-b border-slate-100 relative overflow-hidden">
+        <div class="max-w-7xl mx-auto grid lg:grid-cols-2 gap-16 items-center">
+            <div class="relative z-10">
+                <span class="inline-block bg-blue-100 text-blue-700 px-4 py-1 rounded-full text-[10px] font-black uppercase tracking-widest mb-6 italic border border-blue-200">8+ Years of Trust</span>
+                <h1 class="text-6xl md:text-8xl font-black leading-[0.85] uppercase italic mb-8">Scale Your <br><span class="text-blue-700">Dream</span> Business</h1>
+                <p class="text-lg text-slate-500 font-medium max-w-lg mb-10 leading-relaxed italic">Direct bank liasoning for PMEGP, Mudra, and MSME funding. We bridge the gap between entrepreneurs and capital.</p>
+                <div class="flex flex-wrap gap-4">
+                    <a href="apply-now.html" class="bg-blue-700 text-white px-10 py-5 rounded-[2.5rem] font-black text-xs uppercase shadow-2xl shadow-blue-200 hover:scale-105 transition">Start Your File Now</a>
+                    <a href="#loans" class="bg-white border-2 border-slate-200 text-slate-900 px-10 py-5 rounded-[2.5rem] font-black text-xs uppercase hover:bg-slate-50 transition">View All Loans</a>
+                </div>
+            </div>
+            <div class="relative">
+                <div class="absolute -top-20 -right-20 w-96 h-96 bg-blue-100 rounded-full mix-blend-multiply filter blur-3xl opacity-50 animate-pulse"></div>
+                <img src="https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&w=800" class="rounded-[4rem] shadow-2xl relative z-10 border-[12px] border-white" alt="Financial Planning">
+            </div>
+        </div>
+    </header>
+
+    <section class="py-16 bg-slate-900 text-white">
+        <div class="max-w-7xl mx-auto px-6 grid grid-cols-2 md:grid-cols-4 gap-12 text-center">
+            <div><h4 class="text-4xl font-black mb-1 italic">₹500Cr+</h4><p class="text-[9px] font-bold uppercase tracking-widest text-slate-400">Funds Disbursed</p></div>
+            <div><h4 class="text-4xl font-black mb-1 italic">15K+</h4><p class="text-[9px] font-bold uppercase tracking-widest text-slate-400">Happy Clients</p></div>
+            <div><h4 class="text-4xl font-black mb-1 italic">12</h4><p class="text-[9px] font-bold uppercase tracking-widest text-slate-400">Inquiry Hubs</p></div>
+            <div><h4 class="text-4xl font-black mb-1 italic">1200+</h4><p class="text-[9px] font-bold uppercase tracking-widest text-slate-400">Associated CAs</p></div>
+        </div>
+    </section>
+
+    <section id="schemes" class="py-24 px-6 max-w-7xl mx-auto">
+        <div class="flex flex-col md:flex-row justify-between items-end mb-16 gap-4">
+            <h2 class="text-5xl font-black uppercase italic leading-none">Government <br><span class="text-blue-700">Schemes</span></h2>
+            <p class="text-slate-500 max-w-sm text-sm font-medium">We specialize in central and state government grants for new entrepreneurs.</p>
+        </div>
+        
+        <div class="grid md:grid-cols-3 gap-8">
+            <a href="pmegp-loan.html" class="service-card p-10 bg-slate-50 rounded-[3rem] border border-slate-100 block">
+                <i class="fas fa-landmark text-4xl text-blue-600 mb-8"></i>
+                <h3 class="text-2xl font-black mb-4 uppercase">PMEGP Funding</h3>
+                <p class="text-slate-500 text-sm mb-8 italic">Up to ₹50 Lakh for manufacturing with 35% subsidy.</p>
+                <span class="text-[10px] font-black uppercase tracking-widest text-blue-700">Check Eligibility →</span>
+            </a>
+            <a href="mudra-loan.html" class="service-card p-10 bg-orange-50 rounded-[3rem] border border-orange-100 block">
+                <i class="fas fa-bolt text-4xl text-orange-500 mb-8"></i>
+                <h3 class="text-2xl font-black mb-4 uppercase">Mudra Yojana</h3>
+                <p class="text-slate-500 text-sm mb-8 italic">Collateral-free loans up to ₹10 Lakh for small units.</p>
+                <span class="text-[10px] font-black uppercase tracking-widest text-orange-600">Apply Shishu/Kishore →</span>
+            </a>
+            <a href="standup-india.html" class="service-card p-10 bg-purple-50 rounded-[3rem] border border-purple-100 block">
+                <i class="fas fa-star text-4xl text-purple-600 mb-8"></i>
+                <h3 class="text-2xl font-black mb-4 uppercase">Stand-Up India</h3>
+                <p class="text-slate-500 text-sm mb-8 italic">Funding for Women and SC/ST Entrepreneurs up to ₹1 Cr.</p>
+                <span class="text-[10px] font-black uppercase tracking-widest text-purple-700">Registration Portal →</span>
+            </a>
+        </div>
+    </section>
+
+    
+
+    <section id="loans" class="py-24 bg-slate-50 px-6">
+        <div class="max-w-7xl mx-auto">
+            <h2 class="text-5xl font-black uppercase italic text-center mb-16">Commercial <span class="text-blue-700">Credit</span> Hub</h2>
+            <div class="grid md:grid-cols-4 gap-6">
+                <a href="tractor-loan.html" class="bg-white p-8 rounded-[2rem] text-center border hover:border-blue-600 transition">
+                    <i class="fas fa-tractor mb-4 text-green-600"></i>
+                    <h5 class="font-bold uppercase text-xs">Tractor Loans</h5>
+                </a>
+                <a href="working-capital.html" class="bg-white p-8 rounded-[2rem] text-center border hover:border-blue-600 transition">
+                    <i class="fas fa-chart-line mb-4 text-blue-600"></i>
+                    <h5 class="font-bold uppercase text-xs">Working Capital</h5>
+                </a>
+                <a href="machinery-loan.html" class="bg-white p-8 rounded-[2rem] text-center border hover:border-blue-600 transition">
+                    <i class="fas fa-cogs mb-4 text-slate-600"></i>
+                    <h5 class="font-bold uppercase text-xs">Machinery Loan</h5>
+                </a>
+                <a href="unsecured-business-loan.html" class="bg-white p-8 rounded-[2rem] text-center border hover:border-blue-600 transition">
+                    <i class="fas fa-user-shield mb-4 text-red-600"></i>
+                    <h5 class="font-bold uppercase text-xs">Unsecured Loan</h5>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-24 px-6 max-w-7xl mx-auto">
+        <div class="grid lg:grid-cols-2 gap-20 items-center">
+            <div>
+                <h2 class="text-5xl font-black uppercase italic mb-8 italic leading-none">12 Strategic <br><span class="text-blue-700">Inquiry Hubs</span></h2>
+                <p class="text-slate-500 mb-10 font-medium">From Patel Nagar HQ to Ahmedabad, Mumbai, and beyond. Real physical presence for real business trust.</p>
+                <div class="grid grid-cols-2 gap-6">
+                    <div class="border-l-4 border-blue-700 pl-4 py-2">
+                        <h4 class="font-bold uppercase text-xs italic">Delhi NCR</h4>
+                        <p class="text-[10px] text-slate-400 font-bold">HQ & 3 Regional Centers</p>
+                    </div>
+                    <div class="border-l-4 border-green-700 pl-4 py-2">
+                        <h4 class="font-bold uppercase text-xs italic">Gujarat Hub</h4>
+                        <p class="text-[10px] text-slate-400 font-bold">Ahmedabad & Surat</p>
+                    </div>
+                </div>
+                <a href="network.html" class="mt-12 inline-block text-xs font-black uppercase border-b-2 border-slate-900 pb-2">Explore Full Network Map →</a>
+            </div>
+            <div class="bg-slate-100 rounded-[4rem] h-[500px] flex items-center justify-center relative group">
+                <img src="https://images.pexels.com/photos/7163953/pexels-photo-7163953.jpeg?auto=compress&cs=tinysrgb&w=800" class="w-full h-full object-cover rounded-[4rem] opacity-80 group-hover:scale-105 transition duration-700">
+                <div class="absolute bg-white p-6 rounded-3xl shadow-xl">
+                    <p class="font-black text-xs uppercase tracking-widest text-blue-700">Visit Patel Nagar HQ</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    
+
+    <footer class="bg-white border-t border-slate-100 py-20 px-6">
+        <div class="max-w-7xl mx-auto grid md:grid-cols-4 gap-12">
+            <div class="col-span-1 md:col-span-2">
+                <h4 class="font-black text-2xl uppercase italic mb-6">Smile <span class="text-blue-700">Financial</span></h4>
+                <p class="text-slate-400 text-sm max-w-sm mb-8 italic">Leading India's MSME revolution since 2018. Expert consulting for PMEGP, Udyam, and Corporate Funding.</p>
+                <div class="flex gap-4">
+                    <a href="#" class="w-10 h-10 bg-slate-100 rounded-full flex items-center justify-center text-slate-500 hover:bg-blue-700 hover:text-white transition"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="w-10 h-10 bg-slate-100 rounded-full flex items-center justify-center text-slate-500 hover:bg-blue-700 hover:text-white transition"><i class="fab fa-whatsapp"></i></a>
+                </div>
+            </div>
+            <div>
+                <h5 class="font-black uppercase text-[10px] tracking-widest text-slate-400 mb-6">Our Solutions</h5>
+                <ul class="space-y-3 text-[11px] font-bold uppercase text-slate-600">
+                    <li><a href="pmegp.html" class="hover:text-blue-700">PMEGP Registration</a></li>
+                    <li><a href="udyam.html" class="hover:text-blue-700">Udyam & MSME</a></li>
+                    <li><a href="mudra.html" class="hover:text-blue-700">Mudra Scheme</a></li>
+                    <li><a href="project-reports.html" class="hover:text-blue-700">DPR Drafting</a></li>
+                </ul>
+            </div>
+            <div>
+                <h5 class="font-black uppercase text-[10px] tracking-widest text-slate-400 mb-6">Support Hub</h5>
+                <ul class="space-y-3 text-[11px] font-bold uppercase text-slate-600">
+                    <li><a href="network.html" class="hover:text-blue-700">Inquiry Centers</a></li>
+                    <li><a href="emi-calculator.html" class="hover:text-blue-700">EMI Calculator</a></li>
+                    <li><a href="careers.html" class="hover:text-blue-700">Join as Partner</a></li>
+                    <li><a href="privacy.html" class="hover:text-blue-700">Legal Policy</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="max-w-7xl mx-auto border-t border-slate-50 mt-20 pt-10 text-center">
+            <p class="text-[9px] font-black uppercase tracking-[0.4em] text-slate-300">© 2026 Smile Financial Solution | Patel Nagar HQ | Designed for Growth</p>
+        </div>
+    </footer>
 
 </body>
 </html>
