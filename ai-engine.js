@@ -1,4 +1,4 @@
-// ai-engine.js - FIXED & SECURE
+// ai-engine.js
 const msgContainer = document.getElementById('ai-messages');
 const aiInput = document.getElementById('ai-input');
 const sendBtn = document.getElementById('send-ai');
@@ -7,11 +7,9 @@ async function handleAIResponse() {
     const prompt = aiInput.value.trim();
     if (!prompt) return;
 
-    // User message display
     appendMsg('user', prompt);
     aiInput.value = '';
     
-    // Disable button while processing
     sendBtn.disabled = true;
     sendBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i>';
 
@@ -22,20 +20,17 @@ async function handleAIResponse() {
             body: JSON.stringify({ prompt: prompt })
         });
 
-        if (!response.ok) throw new Error('Network response was not ok');
-
         const data = await response.json();
         
         if (data.image) {
             appendMsg('bot', `<img src="${data.image}" class="rounded-2xl mt-2 w-full shadow-lg border">`, true);
+        } else if (data.text) {
+            appendMsg('bot', data.text);
         } else {
-            const replyText = data.candidates?.[0]?.content?.parts?.[0]?.text || data.text || "I am processing your request. Please wait.";
-            const cleanReply = replyText.replace(/[*_#~]/g, '');
-            appendMsg('bot', cleanReply);
+            throw new Error("Invalid Data");
         }
     } catch (err) {
-        console.error("Error:", err);
-        appendMsg('bot', "Technical update in progress at Patel Nagar HQ. Please call 8586051944 for instant support.");
+        appendMsg('bot', "Our AI is currently optimizing files for Patel Nagar HQ. Please call 8586051944 for immediate loan status.");
     } finally {
         sendBtn.disabled = false;
         sendBtn.innerHTML = '<i class="fas fa-paper-plane"></i>';
@@ -55,6 +50,5 @@ function appendMsg(role, content, isHTML = false) {
     msgContainer.scrollTo({ top: msgContainer.scrollHeight, behavior: 'smooth' });
 }
 
-// Event Listeners
 sendBtn.onclick = handleAIResponse;
 aiInput.onkeypress = (e) => { if (e.key === 'Enter') handleAIResponse(); };
