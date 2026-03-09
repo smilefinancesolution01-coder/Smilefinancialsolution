@@ -1,65 +1,64 @@
-// SMILE FINANCIAL AI - SECURE & CLEAN VERSION
-// No Hardcoded Keys to avoid "Dangerous Site" Warning
+// SMILE FINANCIAL AI - SECURE VERSION
+// Yahan koi bhi key nahi honi chahiye (No hardcoded keys)
 
 const msgContainer = document.getElementById('ai-messages');
 const aiInput = document.getElementById('ai-input');
+let synth = window.speechSynthesis;
 
-// 1. Natural Voice (Speaker Logic)
-function playSpeech(text) {
-    if (window.speechSynthesis.speaking) {
-        window.speechSynthesis.cancel();
-        return;
-    }
-    const utterance = new SpeechSynthesisUtterance(text.split('.')[0]);
-    utterance.lang = 'en-IN';
-    window.speechSynthesis.speak(utterance);
-}
+// 1. Logic to fetch from Vercel Environment
+// Hum yahan window object check karenge
+const GEMINI_API_URL = "https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent";
 
-// 2. Secure API Call Logic
-async function getAIResponse() {
-    const userPrompt = aiInput.value.trim();
-    if (!userPrompt) return;
+async function getSmileAIResponse() {
+    const userText = aiInput.value.trim();
+    if (!userText) return;
 
-    appendMessage('user', userPrompt);
+    appendMessage('user', userText);
     aiInput.value = '';
 
-    // Error handling for missing keys in frontend
     try {
-        // Hum Gemini ko call karenge, par key variable se uthayenge
-        const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${window.NEXT_PUBLIC_GEMINI_KEY}`, {
+        // IMPORTANT: Yahan hum Vercel ke proxy ka wait karte hain 
+        // Agar aapne Vercel me NEXT_PUBLIC_ prefix use kiya hai tabhi frontend dekh payega
+        const response = await fetch(`${GEMINI_API_URL}?key=${window.NEXT_PUBLIC_GEMINI_KEY || 'AIza...' }`, {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({
-                contents: [{ parts: [{ text: `System: Professional Business Consultant at Smile Financial. No symbols. English language. Focus on PMEGP and Loans. User: ${userPrompt}` }] }]
+                contents: [{ parts: [{ text: `Role: Smile Financial Expert. No symbols. Professional English. Focus: PMEGP, 20L Grant, Loans. User: ${userText}` }] }]
             })
         });
 
         const data = await response.json();
-        const reply = data.candidates[0].content.parts[0].text.replace(/[*_#~]/g, '');
-        
-        appendMessage('bot', reply);
-    } catch (err) {
-        appendMessage('bot', "System update in progress. For urgent assistance, contact New Delhi HQ at 8586051944.");
+        const rawText = data.candidates[0].content.parts[0].text;
+        const cleanReply = rawText.replace(/[*_#~]/g, '').trim();
+
+        appendMessage('bot', cleanReply);
+    } catch (error) {
+        appendMessage('bot', "Technical update in progress. Please call 8586051944 for immediate support.");
     }
 }
 
 function appendMessage(role, content) {
-    const div = document.createElement('div');
-    div.className = role === 'user' 
-        ? 'bg-blue-600 text-white p-4 rounded-2xl rounded-tr-none ml-auto max-w-[85%] mb-4 shadow-md' 
-        : 'bg-white text-slate-800 p-4 rounded-2xl rounded-tl-none mr-auto max-w-[85%] border shadow-sm mb-4 relative';
+    const msgDiv = document.createElement('div');
+    msgDiv.className = role === 'user' 
+        ? 'bg-blue-600 text-white p-4 rounded-3xl rounded-tr-none ml-auto max-w-[85%] shadow-md mb-4' 
+        : 'bg-white text-slate-800 p-4 rounded-3xl rounded-tl-none mr-auto max-w-[85%] border border-gray-100 shadow-md mb-4 relative';
 
-    div.innerText = content;
-
+    msgDiv.innerText = content;
+    
     if (role === 'bot') {
-        const btn = document.createElement('button');
-        btn.innerHTML = '<i class="fas fa-volume-up ml-2 text-blue-500"></i>';
-        btn.onclick = () => playSpeech(content);
-        div.appendChild(btn);
+        const speaker = document.createElement('button');
+        speaker.className = "ml-2 text-blue-500 hover:text-blue-700 transition";
+        speaker.innerHTML = '<i class="fas fa-volume-up"></i>';
+        speaker.onclick = () => {
+            const utter = new SpeechSynthesisUtterance(content.split('.')[0]);
+            utter.lang = 'en-IN';
+            window.speechSynthesis.speak(utter);
+        };
+        msgDiv.appendChild(speaker);
     }
 
-    msgContainer.appendChild(div);
+    msgContainer.appendChild(msgDiv);
     msgContainer.scrollTo({ top: msgContainer.scrollHeight, behavior: 'smooth' });
 }
 
-document.getElementById('send-ai').onclick = getAIResponse;
+document.getElementById('send-ai').onclick = getSmileAIResponse;
